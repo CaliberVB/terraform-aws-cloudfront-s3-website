@@ -62,6 +62,12 @@ variable "cache_policy_id" {
   description = "cache policy id for CF"
 }
 
+variable "origin_request_policy_id" {
+  type        = string
+  default     = ""
+  description = "origin_request_policy_id for CF"
+}
+
 variable "forwarding" {
   type        = bool
   default     = true

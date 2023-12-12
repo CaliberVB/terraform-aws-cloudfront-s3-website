@@ -172,8 +172,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       }
     }
 
-    cache_policy_id        = var.cache_policy_id != "" ? var.cache_policy_id : null
-    viewer_protocol_policy = "redirect-to-https"
+    origin_request_policy_id = var.origin_request_policy_id != "" ? var.origin_request_policy_id : null
+    cache_policy_id          = var.cache_policy_id != "" ? var.cache_policy_id : null
+    viewer_protocol_policy   = "redirect-to-https"
 
     # https://stackoverflow.com/questions/67845341/cloudfront-s3-etag-possible-for-cloudfront-to-send-updated-s3-object-before-t
     min_ttl     = var.cloudfront_min_ttl
