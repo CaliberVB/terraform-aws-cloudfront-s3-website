@@ -50,6 +50,16 @@ variable "cloudfront_max_ttl" {
   description = "The maximum TTL for the cloudfront cache"
 }
 
+variable "compress" {
+  type        = bool
+  default     = false
+  description = "CF is compress or not"
+}
+variable "cloudfront_max_ttl" {
+  default     = 31536000
+  description = "The maximum TTL for the cloudfront cache"
+}
+
 variable "cloudfront_geo_restriction_restriction_type" {
   default     = "none"
   description = "The method that you want to use to restrict distribution of your content by country: none, whitelist, or blacklist."

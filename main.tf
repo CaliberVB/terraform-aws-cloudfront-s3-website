@@ -110,7 +110,7 @@ data "aws_route53_zone" "domain_name" {
 ### ROUTE53 ###
 
 resource "aws_route53_record" "route53_record" {
-  count      = var.use_default_domain ? 0 : 1
+  count = var.use_default_domain ? 0 : 1
   depends_on = [
     aws_cloudfront_distribution.s3_distribution
   ]
@@ -175,6 +175,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     min_ttl     = var.cloudfront_min_ttl
     default_ttl = var.cloudfront_default_ttl
     max_ttl     = var.cloudfront_max_ttl
+    compress    = var.compress
   }
 
   price_class = var.price_class
@@ -182,7 +183,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   restrictions {
     geo_restriction {
       restriction_type = var.cloudfront_geo_restriction_restriction_type
-      locations = []
+      locations        = []
     }
   }
   dynamic "viewer_certificate" {
