@@ -164,7 +164,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     dynamic "forwarded_values" {
       for_each = var.forwarding ? [1] : []
       content {
-        query_string = true
+        query_string = false
 
         cookies {
           forward = "none"
