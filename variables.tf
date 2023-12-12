@@ -55,10 +55,6 @@ variable "compress" {
   default     = false
   description = "CF is compress or not"
 }
-variable "cloudfront_max_ttl" {
-  default     = 31536000
-  description = "The maximum TTL for the cloudfront cache"
-}
 
 variable "cloudfront_geo_restriction_restriction_type" {
   default     = "none"
