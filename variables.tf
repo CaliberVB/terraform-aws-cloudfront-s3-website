@@ -62,6 +62,12 @@ variable "cache_policy_id" {
   description = "cache policy id for CF"
 }
 
+variable "forwarding" {
+  type        = bool
+  default     = true
+  description = "forwaring or not"
+}
+
 variable "cloudfront_geo_restriction_restriction_type" {
   default     = "none"
   description = "The method that you want to use to restrict distribution of your content by country: none, whitelist, or blacklist."

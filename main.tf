@@ -161,11 +161,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     target_origin_id = "s3-cloudfront"
 
-    forwarded_values {
-      query_string = false
+    dynamic "forwarded_values" {
+      for_each = var.forwarding ? [1] : []
+      content {
+        query_string = true
 
-      cookies {
-        forward = "none"
+        cookies {
+          forward = "none"
+        }
       }
     }
 
