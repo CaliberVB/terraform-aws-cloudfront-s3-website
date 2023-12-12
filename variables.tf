@@ -56,6 +56,12 @@ variable "compress" {
   description = "CF is compress or not"
 }
 
+variable "cache_policy_id" {
+  type        = string
+  default     = ""
+  description = "cache policy id for CF"
+}
+
 variable "cloudfront_geo_restriction_restriction_type" {
   default     = "none"
   description = "The method that you want to use to restrict distribution of your content by country: none, whitelist, or blacklist."
