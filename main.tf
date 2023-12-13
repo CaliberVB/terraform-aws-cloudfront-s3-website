@@ -103,8 +103,25 @@ data "aws_route53_zone" "domain_name" {
   private_zone = false
 }
 
+resource "aws_s3_bucket_cors_configuration" "cors_config" {
+  count  = var.s3_cors ? 1 : 0
+  bucket = aws_s3_bucket.s3_bucket.bucket
 
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["PUT", "POST"]
+    allowed_origins = ["*"]
+    expose_headers  = ["ETag"]
+    max_age_seconds = 3000
+  }
 
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_origins = ["*"]
+    expose_headers  = []
+  }
+}
 
 
 ### ROUTE53 ###

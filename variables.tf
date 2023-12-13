@@ -56,6 +56,12 @@ variable "compress" {
   description = "CF is compress or not"
 }
 
+variable "s3_cors" {
+  type        = bool
+  default     = false
+  description = "S3 is enable cors"
+}
+
 variable "cache_policy_id" {
   type        = string
   default     = ""
